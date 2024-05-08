@@ -4,15 +4,11 @@ import { CreateUserUseCase } from "../../useCases/user/create.js";
 export class UserController {
 
   async handle(req, res) {
-    try {
-      const { name, email, password } = req.body;
-      const userRepository = new UserRepository();
-      const createUserUseCase = new CreateUserUseCase(userRepository);
-      const user = await createUserUseCase.execute({ name, email, password });
-      res.status(201).end()
-    } catch (error) {
-      console.error('ERROR -> ', error);
-    }
+    const { name, email, password } = req.body;
+    const userRepository = new UserRepository();
+    const createUserUseCase = new CreateUserUseCase(userRepository);
+    const user = await createUserUseCase.execute({ name, email, password });
+    res.status(201).end();
   }
 
 }
