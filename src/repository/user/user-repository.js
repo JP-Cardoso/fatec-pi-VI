@@ -3,11 +3,13 @@ const db = [];
 
 export class UserRepository {
 
-  save(user) {
-    db.push(user);
-    for (const data of db) {
-      console.log(data);
+  save(params) {
+    db.push(params);
+    const result = db.find((user) => user.password === "0");
+    if(!result) {
+      return null
     }
+    return "ok"
   }
 
 }

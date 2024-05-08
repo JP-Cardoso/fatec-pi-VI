@@ -8,7 +8,8 @@ export class UserController {
       const { name, email, password } = req.body;
       const userRepository = new UserRepository();
       const createUserUseCase = new CreateUserUseCase(userRepository);
-      const user = createUserUseCase.execute({ name, email, password });
+      const user = await createUserUseCase.execute({ name, email, password });
+      res.status(201).end()
     } catch (error) {
       console.error('ERROR -> ', error);
     }
