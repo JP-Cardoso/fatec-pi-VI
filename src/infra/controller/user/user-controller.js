@@ -1,5 +1,5 @@
 import { UserRepository } from "../../repository/user/user-repository.js";
-import { CreateUserUseCase } from "../../useCases/user/create.js";
+import { CreateUserUseCase } from "../../../domain/useCases/user/create.js";
 
 export class UserController {
 

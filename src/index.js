@@ -1,5 +1,5 @@
 import { sequelize } from './infra/config/mysql/database-config.js';
-import app from './server/server.js';
+import app from '../src/infra/server/server.js';
 
 const main = async () => {
   const port = 3000;

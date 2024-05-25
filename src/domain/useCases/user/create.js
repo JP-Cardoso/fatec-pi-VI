@@ -1,4 +1,4 @@
-import { CreateUserService } from "../../domain/services/user/create-service.js";
+import { CreateUserService } from "../../services/user/create-service.js";
 
 export class CreateUserUseCase {
 
