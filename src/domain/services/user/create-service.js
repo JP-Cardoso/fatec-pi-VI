@@ -4,7 +4,7 @@ export class CreateUserService {
 
   async execute(params) {
 
-    const { nome, email, password } = params
+    const { nome, email, password } = params;
 
     if (!email) {
       throw new Error("Email incorrect");
