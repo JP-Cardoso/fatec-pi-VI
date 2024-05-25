@@ -1,10 +1,20 @@
+import { sequelize } from './infra/config/mysql/database-config.js';
 import app from './server/server.js';
 
-const main = () => {
+const main = async () => {
   const port = 3000;
   const server = app;
-  server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  })
-}
+
+  try {
+    await sequelize.authenticate();
+    console.log('Conexão ao banco de dados realizada com sucesso!');
+
+    server.listen(port, () => {
+      console.log(`Servidor em execução na porta ${port}`);
+    });
+  } catch (error) {
+    console.error('Erro ao iniciar a aplicação:', error);
+  }
+};
+
 main();
