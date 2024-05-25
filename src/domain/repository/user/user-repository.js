@@ -6,4 +6,17 @@ export class UserRepository {
     const user = await UserModel.create(params);
   }
 
+  async findOne(email) {
+    const user = await UserModel.findOne(
+      {
+        where: {
+           email
+        }
+      }
+    );
+
+    return user;
+  }
+
+
 }
