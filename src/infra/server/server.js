@@ -1,5 +1,5 @@
 import express from 'express';
-import router from '../router/router.js';
+import router from '../api/router/router.js';
 import { getErrors } from '../utils/error/errors.js';
 
 const app = express();

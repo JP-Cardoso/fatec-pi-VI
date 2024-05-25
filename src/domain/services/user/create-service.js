@@ -4,12 +4,12 @@ export class CreateUserService {
 
   async execute(params) {
 
-    const { name, email, password } = params
+    const { nome, email, password } = params
 
     if (!email) {
       throw new Error("Email incorrect");
     }
-    if (!name) {
+    if (!nome) {
       throw new Error("Name incorrect");
     }
     if (!password) {
@@ -18,7 +18,7 @@ export class CreateUserService {
 
     const newPassword = await this.hashPassword(password);
     const user = {
-      name,
+      nome,
       email,
       password: newPassword
     }
