@@ -18,5 +18,9 @@ export class UserRepository {
     return user;
   }
 
+  async getAll() {
+    const users = await UserModel.findAll();
+    return users;
+  }
 
 }

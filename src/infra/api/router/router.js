@@ -4,10 +4,11 @@ import { AuthenticateController } from "../controller/auth/Authenticate.js";
 
 const router = Router();
 
-const createUserController = new UserController();
+const userController = new UserController();
 const authController = new AuthenticateController();
 
-router.post("/user", createUserController.handle);
+router.post("/user", userController.handle);
+router.get("/users", userController.getAll)
 router.post("/auth", authController.authenticate);
 
 export default router;
