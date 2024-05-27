@@ -27,4 +27,4 @@ export const UserModel = sequelize.define(
 }, {
   tableName: 'cliente',
   timestamps: false
-})
+});
