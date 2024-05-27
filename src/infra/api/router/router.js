@@ -10,6 +10,7 @@ const authController = new AuthenticateController();
 
 router.post("/user", userController.handle);
 router.get("/users", authMiddleware, userController.getAll);
+router.put("/user/:id", authMiddleware, userController.update);
 
 router.post("/auth", authController.authenticate);
 

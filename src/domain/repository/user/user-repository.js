@@ -4,6 +4,7 @@ export class UserRepository {
 
   async save(params) {
     const user = await UserModel.create(params);
+    return user;
   }
 
   async findOne(email) {
@@ -21,6 +22,21 @@ export class UserRepository {
   async getAll() {
     const users = await UserModel.findAll();
     return users;
+  }
+
+  async findOneByPk(id) {
+    const user = await UserModel.findByPk(id);
+    return user;
+  }
+
+  async update(obj, id) {
+    const result = await UserModel.update(
+      ...obj, {
+        where: id
+      }
+    )
+
+    return result;
   }
 
 }

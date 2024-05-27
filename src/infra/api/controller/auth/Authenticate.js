@@ -5,10 +5,14 @@ export class AuthenticateController {
   constructor() { }
 
   async authenticate(req, res) {
-    const { email, password } = req.body;
-    const repository = new UserRepository();
-    const authUseCase = new AuthenticateUseCase(repository);
-    const token = await authUseCase.execute(email, password)
-    console.log(token);
+    try {
+      const { email, password } = req.body;
+      const repository = new UserRepository();
+      const authUseCase = new AuthenticateUseCase(repository);
+      const token = await authUseCase.execute(email, password);
+      res.status(200).send({ data: token });
+    } catch (error) {
+      res.status(500);
+    }
   }
 } 
