@@ -1,4 +1,4 @@
-import { UserModel } from "../../../infra/config/user/user-model.js";
+import { UserModel } from "../../../infra/config/mysql/user/user-model.js";
 
 export class UserRepository {
 

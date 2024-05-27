@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../mysql/database-config.js";
+import { sequelize } from "../database-config.js";
 import { UserModel } from "../user/user-model.js";
 
 export const AccountModel = sequelize.define(

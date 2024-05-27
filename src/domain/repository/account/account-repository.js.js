@@ -1,4 +1,4 @@
-import { AccountModel } from "../../../infra/config/account/Account-Model.js";
+import { AccountModel } from "../../../infra/config/mysql/account/Account-Model.js";
 
 export class AccountRepository {
 
