@@ -11,7 +11,7 @@ export class UserRepository {
     const user = await UserModel.findOne(
       {
         where: {
-           email
+          email
         }
       }
     );
@@ -30,12 +30,13 @@ export class UserRepository {
   }
 
   async update(obj, id) {
+    const { nome, email } = { ...obj };
     const result = await UserModel.update(
-      ...obj, {
-        where: id
+      { nome, email }, {
+      where: {
+        id
       }
-    )
-
+    });
     return result;
   }
 

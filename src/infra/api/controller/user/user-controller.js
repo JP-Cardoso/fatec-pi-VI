@@ -11,7 +11,7 @@ export class UserController {
       const userRepository = new UserRepository();
       const createUserUseCase = new CreateUserUseCase(userRepository);
       const user = await createUserUseCase.execute({ nome, email, password });
-      res.status(201).send({msg: "usuário cadastrado com sucesso"});
+      res.status(201).send({ msg: "usuário cadastrado com sucesso" });
     } catch (error) {
       res.status(500)
     }
@@ -26,12 +26,18 @@ export class UserController {
   }
 
   async update(req, res) {
-    console.log(req.params);
-    return
-    const userData = req.body;
-    const userRepository = new UserRepository();
-    const updateUserUseCase = new UpdateUserUseCase(userRepository);
-    const result = await updateUserUseCase.execute(userData);
+    try {
+      const id = req.params.id
+      const client = req.body;
+      const obj = { id, ...client };
+      const userRepository = new UserRepository();
+      const updateUserUseCase = new UpdateUserUseCase(userRepository);
+      const result = await updateUserUseCase.execute(obj);
+      res.status(200);
+    } catch (error) {
+      res.status(500);
+    }
+
   }
 
 }
