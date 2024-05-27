@@ -21,6 +21,9 @@ export class UserRepository {
 
   async getAll() {
     const users = await UserModel.findAll();
+    if (!users) {
+      return [];
+    }
     return users;
   }
 

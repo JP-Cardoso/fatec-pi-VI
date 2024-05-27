@@ -13,16 +13,22 @@ export class UserController {
       const user = await createUserUseCase.execute({ nome, email, password });
       res.status(201).send({ msg: "usuário cadastrado com sucesso" });
     } catch (error) {
-      res.status(500)
+      console.log("ERROR7", error.message);
+      res.status(500).send({msg: "Erro interno"});
     }
 
   }
 
   async getAll(req, res) {
-    const userRepository = new UserRepository();
-    const getAllUsersUseCase = new GetAllUserUseCase(userRepository);
-    const data = await getAllUsersUseCase.execute();
-    res.status(200).json(data);
+    try {
+      const userRepository = new UserRepository();
+      const getAllUsersUseCase = new GetAllUserUseCase(userRepository);
+      const data = await getAllUsersUseCase.execute();
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).send({msg: "Erro interno"});
+    }
+
   }
 
   async update(req, res) {
@@ -35,7 +41,7 @@ export class UserController {
       const result = await updateUserUseCase.execute(obj);
       res.status(200);
     } catch (error) {
-      res.status(500);
+      res.status(500).send({msg: "Erro interno"});
     }
 
   }

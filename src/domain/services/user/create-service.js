@@ -13,7 +13,7 @@ export class CreateUserService {
       throw new Error("Name incorrect");
     }
     if (!password) {
-      throw new Error("Password incorrect");
+      return new Error("Password incorrect");
     }
 
     const newPassword = await this.hashPassword(password);
