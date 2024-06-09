@@ -14,7 +14,7 @@ export class UserController {
       res.status(201).send({ msg: "usuário cadastrado com sucesso" });
     } catch (error) {
       console.log("ERROR7", error.message);
-      res.status(500).send({msg: "Erro interno"});
+      res.status(500).send({ msg: "Erro interno" });
     }
 
   }
@@ -26,7 +26,7 @@ export class UserController {
       const data = await getAllUsersUseCase.execute();
       res.status(200).json(data);
     } catch (error) {
-      res.status(500).send({msg: "Erro interno"});
+      res.status(500).send({ msg: "Erro interno" });
     }
 
   }
@@ -41,7 +41,7 @@ export class UserController {
       const result = await updateUserUseCase.execute(obj);
       res.status(200);
     } catch (error) {
-      res.status(500).send({msg: "Erro interno"});
+      res.status(500).send({ msg: "Erro interno" });
     }
 
   }
