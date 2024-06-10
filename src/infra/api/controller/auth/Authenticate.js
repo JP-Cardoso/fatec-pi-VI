@@ -9,8 +9,8 @@ export class AuthenticateController {
       const { email, password } = req.body;
       const repository = new UserRepository();
       const authUseCase = new AuthenticateUseCase(repository);
-      const token = await authUseCase.execute(email, password);
-      res.status(200).send({ data: token });
+      const data = await authUseCase.execute(email, password);
+      res.status(200).send({ data });
     } catch (error) {
       res.status(500);
     }
