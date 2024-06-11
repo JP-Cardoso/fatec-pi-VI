@@ -2,7 +2,7 @@ import { sequelize } from './infra/config/mysql/database-config.js';
 import app from '../src/infra/server/server.js';
 
 const main = async () => {
-  const port = 3000;
+  const port = 8080;
   const server = app;
 
   try {
