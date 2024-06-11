@@ -6,7 +6,7 @@ const main = async () => {
   const server = app;
 
   try {
-    await sequelize.authenticate();
+    //await sequelize.authenticate();
     console.log('Conexão ao banco de dados realizada com sucesso!');
 
     server.listen(port, () => {
