@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon src/",
-    "start": "nodemon src/"
+    "start:dev": "nodemon src/index",
+    "start": "nodemon src/index"
   },
   "keywords": [],
   "author": "",
