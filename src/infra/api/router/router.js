@@ -14,4 +14,12 @@ router.put("/user/:id", authMiddleware, userController.update);
 
 router.post("/auth", authController.authenticate);
 
+router.get("/healthcheck", (req, res) => {
+  try {
+    res.status(200).send({msg: "Tudo ok aqui chefia"});
+  } catch (error) {
+    res.status(500).send({msg: "Deu erro na aplicação"})
+  }
+})
+
 export default router;
